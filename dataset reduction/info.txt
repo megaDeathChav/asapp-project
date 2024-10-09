@@ -1,0 +1,12 @@
+80%-10%-10% train test dev files
+
+4000-500-500 = total 5k conversations
+2400-300-300 = total 3k conversations
+800-100-100 = total 1k conversations
+80-10-10 = total 100 conversations
+
+10%-10%-10% train test dev files
+
+100-100-100 = total 300 conversations
+
+delexed_removed_main.json is the main dataset provided, with the delexed key removed from each conversation.
