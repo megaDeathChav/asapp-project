@@ -37,3 +37,30 @@ async def extract_information(conversation_request: MultiConversationRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
+#bert endpoints - tester
+class ConversationMessage(BaseModel):
+    speaker: str
+    text: str
+
+class MultiConversationRequest(BaseModel):
+    conversations: List[List[ConversationMessage]]
+
+
+app = FastAPI()
+
+@app.post("/extract-info/")
+async def extract_information(conversation_request: MultiConversationRequest):
+    try:
+        all_extracted_info = []
+
+        # each convo
+        for conversation_data in conversation_request.conversations:
+            formatted_conversation = [(msg.speaker, msg.text) for msg in conversation_data]
+            extracted_entities = extract_entities_from_conversation(formatted_conversation)
+            all_extracted_info.append(extracted_entities)
+        return {"results": all_extracted_info}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
