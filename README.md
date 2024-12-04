@@ -1,27 +1,32 @@
 # Conversational Analysis and Information Extraction with LLMs
 
-This project provides tools for processing and analyzing customer-agent conversations using advanced Large Language Models (LLMs) such as BERT, LLaMA, and Gemini. The project includes a FastAPI-based API for real-time information extraction, exploratory data analysis (EDA) for dataset insights, and evaluation metrics to validate model performance.
+## Overview
+This project implements AI-powered tools to analyze and extract meaningful information from customer-agent conversations. By leveraging advanced Large Language Models (LLMs) such as BERT, LLaMA, Gemini, and ChatGPT, this project aims to:
+- Convert unstructured conversation data into structured formats (e.g., names, emails, phone numbers).
+- Evaluate the accuracy and performance of multiple LLMs for conversational data extraction.
+- Provide an API for seamless integration into real-world systems.
+- Perform Exploratory Data Analysis (EDA) to uncover key trends in conversational datasets.
+
+This work addresses the challenges businesses face in processing large amounts of unstructured conversational data. Our solution enables data-driven decision-making, improves customer support workflows, and enhances operational efficiency.
+
+## Features
+1. **LLM Evaluation**: Testing and comparing ChatGPT, BERT, LLaMA, and Gemini for data extraction tasks.
+2. **API Integration**: Built with FastAPI to allow real-time conversation analysis.
+3. **Dataset Preprocessing**: Cleaned and reduced large datasets for faster model training and testing.
+4. **Performance Metrics**: Accuracy scores and detailed evaluation for structured field extraction.
+5. **Exploratory Data Analysis**: Insights into conversation patterns, label distributions, and field-level missing values.
 
 ## Table of Contents
 1. Project Overview
 2. Setup Instructions
 3. API Usage
 4. Exploratory Data Analysis (EDA)
-5. Using the Models
-6. BERT
-7. LLaMA
-8. Gemini
-9. ChatGPT
+5. BERT
+6. LLaMA
+7. Gemini
+8. ChatGPT
+9. Model Evaluation
 10. Datasets
-11. Contributing
-12. License
-
-## Project Overview
-The goal of this project is to:
-- Extract structured information (name, email, phone, etc.) from conversation datasets.
-- Evaluate the performance of multiple LLMs.
-- Provide a user-friendly API for integrating these models.
-- Perform exploratory data analysis (EDA) to understand conversation trends.
 
 ## Setup Instructions
 ### 1. Clone the Repository
@@ -35,22 +40,21 @@ The goal of this project is to:
 ### 3. Install Dependencies
     pip install -r requirements.txt
 
-### 4. Set Up Google API Key for Gemini
+### 4. Set Up Google API Key (for Gemini)
 Update the llmgemini.py file with your Google API key:
 
     genai.configure(api_key="YOUR_GOOGLE_API_KEY")
 
 ## API Usage
 ### 1. Start the API
-Navigate to the api/ folder and run the following command:
-
+    cd api
     uvicorn api:app --reload
 
-### 2. API Endpoint
+### 2. Send Requests
 
-    POST /extract-info/
+   Endpoint: POST /extract-info/
 
-### Input:
+### Sample Input:
     
     {
       "conversations": [
@@ -63,7 +67,7 @@ Navigate to the api/ folder and run the following command:
       ]
     }
 
-### Response:
+### Sample Response:
 
     {
       "results": [
@@ -127,32 +131,20 @@ The EDA was performed to understand key dataset insights, including:
         - Field-specific accuracy for name, email, and phone.
         - Mismatched results between predictions and ground truth.
 
- Example Output:
-
-     LLM Prediction Accuracy: 66.67%
+ ## Model Evaluation
+ ### Models Tested:
+1. **BERT**: Best suited for classification tasks, requiring fine-tuning for each metric.
+2. **LLaMA**: Performed well with JSON extraction tasks but occasionally hallucinated data.
+3. **Gemini**: Offered the highest overall accuracy and ease of use via Google's API.
+4. **ChatGPT**: Balanced performance across metrics but incurred costs for API usage.
     
-    Keywise Accuracy:
-    {
-        'Customer Name Accuracy': 100.0,
-        'Email Accuracy': 66.67,
-        'Phone Accuracy': 100.0
-    }
-    
-    Mismatched Results:
-    [
-      {
-        "Index": 2,
-        "True Customer Name": "alessandro phoenix",
-        "Predicted Customer Name": "alessandro phoenix",
-        "True Email": "aphoenix939@email.com",
-        "Predicted Email": "incorrectemail@gmail.com",
-        "True Phone": "(727) 760-7806",
-        "Predicted Phone": "(727) 760-7806",
-        "Match": false
-      }
-    ]
-    
-      
+### Accuracy Overview:
+|Model|Name Accuracy| Email Accuracy| Phone Accuracy| Overall Accuracy| Notes|
+|---|----|----|----|-----|-----|
+|BERT| 75% | 68%| N/A| 72%|Requires individual fine-tuning|
+|LLaMA	|90% |70%	|30% | 81%	| Tends to hallucinate non-existent data|
+|Gemini	|100%	|90%	|N/A	|86%	|Best performer; cost-effective|
+|ChatGPT	|80%	|80%	|60%	|75%	|Balanced, commercial-ready|
 
 ## Datasets
 The dataset reduction folder contains datasets for training, testing, and validation.
@@ -163,22 +155,7 @@ The dataset reduction folder contains datasets for training, testing, and valida
 |4000-500-500.json| 4000 train, 500 test, 500 dev|
 |delexed_removed_main.json|Main dataset without delexed keys|
 
-## Contributing
-1. Fork the repository.
-2. Create a feature branch:
-   
-       git checkout -b feature-name
-3. Commit changes:
 
-        git commit -m "Added new feature"
-4. Push to your branch:
-
-       git push origin feature-name
-5. Open a pull request.
-
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 
    
