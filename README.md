@@ -12,10 +12,8 @@ This project provides tools for processing and analyzing customer-agent conversa
 7. LLaMA
 8. Gemini
 9. Datasets
-10. Evaluation
-11. Visualization Results
-12. Contributing
-13. License
+10. Contributing
+11. License
 
 ## Project Overview
 The goal of this project is to:
@@ -111,4 +109,38 @@ The EDA was performed to understand key dataset insights, including:
 - How to Use:
     1. Configure the API key.
     2. Call query_gemini_for_info() to extract data from conversations.
+
+## Datasets
+The dataset reduction folder contains datasets for training, testing, and validation.
+
+|File Name| Description|
+|---------|------------|
+|100-100-100.json| 100 train, 100 test, 100 dev|
+|4000-500-500.json| 4000 train, 500 test, 500 dev|
+|delexed_removed_main.json|Main dataset without delexed keys|
+
+## Contributing
+1. Fork the repository.
+2. Create a feature branch:
+   
+       git checkout -b feature-name
+3. Commit changes:
+
+        git commit -m "Added new feature"
+4. Push to your branch:
+
+       git push origin feature-name
+5. Open a pull request.
+
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+   
+
+
+
+
+
 
