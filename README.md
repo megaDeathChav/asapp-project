@@ -11,9 +11,10 @@ This project provides tools for processing and analyzing customer-agent conversa
 6. BERT
 7. LLaMA
 8. Gemini
-9. Datasets
-10. Contributing
-11. License
+9. ChatGPT
+10. Datasets
+11. Contributing
+12. License
 
 ## Project Overview
 The goal of this project is to:
@@ -109,6 +110,49 @@ The EDA was performed to understand key dataset insights, including:
 - How to Use:
     1. Configure the API key.
     2. Call query_gemini_for_info() to extract data from conversations.
+
+### ChatGPT
+- Purpose: Evaluate ChatGPT (or other LLMs) for extracting customer information (name, email, phone) from conversations.
+- File: LLM_acc_score_sklearn.ipynb
+- How to Use:
+    1. Update the script with your ground truth JSON dataset (e.g., abcd_sample.json) and LLM predictions.
+    2. Install required dependencies:
+
+           pip install pandas scikit-learn tabulate
+    3. Run the script:
+
+           python LLM_acc_score_sklearn.ipynb
+    4. Analyze the output, including:
+        - Overall accuracy of ChatGPT's predictions.
+        - Field-specific accuracy for name, email, and phone.
+        - Mismatched results between predictions and ground truth.
+
+ Example Output:
+
+     LLM Prediction Accuracy: 66.67%
+    
+    Keywise Accuracy:
+    {
+        'Customer Name Accuracy': 100.0,
+        'Email Accuracy': 66.67,
+        'Phone Accuracy': 100.0
+    }
+    
+    Mismatched Results:
+    [
+      {
+        "Index": 2,
+        "True Customer Name": "alessandro phoenix",
+        "Predicted Customer Name": "alessandro phoenix",
+        "True Email": "aphoenix939@email.com",
+        "Predicted Email": "incorrectemail@gmail.com",
+        "True Phone": "(727) 760-7806",
+        "Predicted Phone": "(727) 760-7806",
+        "Match": false
+      }
+    ]
+    
+      
 
 ## Datasets
 The dataset reduction folder contains datasets for training, testing, and validation.
