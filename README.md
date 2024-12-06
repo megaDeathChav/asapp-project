@@ -146,16 +146,16 @@ The EDA was performed to understand key dataset insights, including:
 
 ## Datasets
 The dataset reduction folder contains datasets for training, testing, and validation.
+The Jupyter Notebook smaller_dataset_creator.ipynb was used to create the following datasets:
 
 |File Name| Description|
 |---------|------------|
 |100-100-100.json| 100 train, 100 test, 100 dev|
+|2400-300-300.json| 2400 train, 300 test, 300 dev|
 |4000-500-500.json| 4000 train, 500 test, 500 dev|
-|delexed_removed_main.json|Main dataset without delexed keys|
-
-
-
-
+|800-100-100.json| 800 train, 100 test, 100 dev|
+|80-10-10.json| 80 train, 10 test, 10 dev|
+|delexed_removed_main.json|Main dataset without delexed key|
    
 
 
