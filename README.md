@@ -24,9 +24,8 @@ This work addresses the challenges businesses face in processing large amounts o
 5. BERT
 6. LLaMA
 7. Gemini
-8. ChatGPT
-9. Model Evaluation
-10. Datasets
+8. Model Evaluation
+9. Datasets
 
 ## Setup Instructions
 ### 1. Clone the Repository
@@ -115,36 +114,18 @@ The EDA was performed to understand key dataset insights, including:
     1. Configure the API key.
     2. Call query_gemini_for_info() to extract data from conversations.
 
-### ChatGPT
-- Purpose: Evaluate ChatGPT (or other LLMs) for extracting customer information (name, email, phone) from conversations.
-- File: LLM_acc_score_sklearn.ipynb
-- How to Use:
-    1. Update the script with your ground truth JSON dataset (e.g., abcd_sample.json) and LLM predictions.
-    2. Install required dependencies:
-
-           pip install pandas scikit-learn tabulate
-    3. Run the script:
-
-           python LLM_acc_score_sklearn.ipynb
-    4. Analyze the output, including:
-        - Overall accuracy of ChatGPT's predictions.
-        - Field-specific accuracy for name, email, and phone.
-        - Mismatched results between predictions and ground truth.
-
  ## Model Evaluation
  ### Models Tested:
 1. **BERT**: Best suited for classification tasks, requiring fine-tuning for each metric.
 2. **LLaMA**: Performed well with JSON extraction tasks but occasionally hallucinated data.
 3. **Gemini**: Offered the highest overall accuracy and ease of use via Google's API.
-4. **ChatGPT**: Balanced performance across metrics but incurred costs for API usage.
     
 ### Accuracy Overview:
 |Model|Name Accuracy| Email Accuracy| Phone Accuracy| Overall Accuracy| Notes|
 |---|----|----|----|-----|-----|
-|BERT| 75% | 68%| N/A| 72%|Requires individual fine-tuning|
-|LLaMA	|90% |70%	|30% | 81%	| Tends to hallucinate non-existent data|
+|BERT| 48.7% | 45.2%| 10.3%| 42.9%|Requires individual fine-tuning|
+|LLaMA	|96.25% |88.75%	|81.25% | 88.75%	| Tends to hallucinate non-existent data|
 |Gemini	|100%	|90%	|N/A	|86%	|Best performer; cost-effective|
-|ChatGPT	|80%	|80%	|60%	|75%	|Balanced, commercial-ready|
 
 ## Datasets
 The dataset reduction folder contains datasets for training, testing, and validation.
