@@ -1,7 +1,7 @@
 # Conversational Analysis and Information Extraction with LLMs
 
 ## Overview
-This project implements AI-powered tools to analyze and extract meaningful information from customer-agent conversations. By leveraging advanced Large Language Models (LLMs) such as BERT, LLaMA, Gemini, and ChatGPT, this project aims to:
+This project implements AI-powered tools to analyze and extract meaningful information from customer-agent conversations. By leveraging advanced Large Language Models (LLMs) such as BERT, LLaMA, and Gemini, this project aims to:
 - Convert unstructured conversation data into structured formats (e.g., names, emails, phone numbers).
 - Evaluate the accuracy and performance of multiple LLMs for conversational data extraction.
 - Provide an API for seamless integration into real-world systems.
@@ -24,8 +24,9 @@ This work addresses the challenges businesses face in processing large amounts o
 5. BERT
 6. LLaMA
 7. Gemini
-8. Model Evaluation
-9. Datasets
+8. Accuracy Score Calculation
+9. Model Evaluation
+10. Datasets
 
 ## Setup Instructions
 ### 1. Clone the Repository
@@ -113,6 +114,22 @@ The EDA was performed to understand key dataset insights, including:
 - How to Use:
     1. Configure the API key.
     2. Call query_gemini_for_info() to extract data from conversations.
+
+## Calculating Accuracy Score for Models
+- Purpose: Calculate accuracy score based on any of our model's output.
+- File: LLM_acc_score_sklearn.ipynb
+- How to Use:
+    1. Update the script with your ground truth JSON dataset and LLM predictions.
+    2. Install required dependencies:
+
+           pip install pandas scikit-learn tabulate
+    3. Run the script:
+
+           python LLM_acc_score_sklearn.ipynb
+    4. Analyze the output, including:
+        - Overall conversation-level accuracy.
+        - Field-specific accuracy for name, email, and phone.
+        - Mismatched results between predictions and ground truth.
 
  ## Model Evaluation
  ### Models Tested:
